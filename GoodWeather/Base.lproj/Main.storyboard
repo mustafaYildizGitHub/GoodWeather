@@ -59,30 +59,73 @@
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="qEi-js-yB1"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PFP-Wa-TPm">
                             <connections>
-                                <segue destination="7as-bJ-xcm" kind="presentation" id="Kvy-kq-WQz"/>
+                                <segue destination="7as-bJ-xcm" kind="show" identifier="AddWeatherCityViewController" id="Kvy-kq-WQz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3L-r5-9jB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="158"/>
+            <point key="canvasLocation" x="936" y="131"/>
         </scene>
         <!--Add City-->
         <scene sceneID="Ftq-yb-fMc">
             <objects>
                 <viewController id="F8k-in-JLl" customClass="AddWeatherCityViewController" customModule="GoodWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hv2-iP-uM0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8fb-d0-SgA">
+                                <rect key="frame" x="20" y="395.5" width="374" height="105"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpc-Sb-KUv">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="7nd-7s-MAL"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="XRs-tl-vfH"/>
+                                            <constraint firstAttribute="width" constant="374" id="eKq-cY-Zxv"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="hXW-Lb-NP5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3a-Hz-Toz">
+                                        <rect key="frame" x="152" y="74" width="70" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="H3S-X0-xrH"/>
+                                            <constraint firstAttribute="height" constant="31" id="gvG-KN-6nX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                        <connections>
+                                            <action selector="saveCityButtonPressed:" destination="F8k-in-JLl" eventType="touchUpInside" id="COk-Y0-SFw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aM7-a2-SNQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8fb-d0-SgA" firstAttribute="centerY" secondItem="hv2-iP-uM0" secondAttribute="centerY" id="QF0-cR-4ah"/>
+                            <constraint firstItem="8fb-d0-SgA" firstAttribute="centerX" secondItem="hv2-iP-uM0" secondAttribute="centerX" id="rug-rf-CSz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add City" id="tk6-GL-OYE"/>
+                    <navigationItem key="navigationItem" title="Add City" id="tk6-GL-OYE">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="uvP-WI-Bmg">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="F8k-in-JLl" id="1et-gE-72f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cityNameTextField" destination="cpc-Sb-KUv" id="Uhd-xw-Rvw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0W-3V-ud0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876.811594202899" y="130.58035714285714"/>
+            <point key="canvasLocation" x="2528" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zCx-OZ-ixg">
@@ -107,8 +150,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7as-bJ-xcm" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="eh6-Zw-GbB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gG3-2o-WNi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -118,7 +162,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfA-sZ-nis" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966.6666666666667" y="130.58035714285714"/>
+            <point key="canvasLocation" x="1796" y="131"/>
         </scene>
     </scenes>
     <resources>
